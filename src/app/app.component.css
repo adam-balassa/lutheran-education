@@ -63,12 +63,12 @@ main  {
     background-color: white;
     box-shadow: var(--shadow);
     border-radius: 50%;
-    padding: 3.8rem;
+    padding: 3.8em;
     position: absolute;
-    bottom: 2.2rem;
+    bottom: 2.2em;
     left: 0;
     border: 1px black solid;
-    font-size: 1.4rem;
+    font-size: 1.4em;
     z-index: 4;
 }
 
