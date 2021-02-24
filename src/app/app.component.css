@@ -35,8 +35,8 @@ main  {
 }
 
 .bubble-container .image-container {
-    width: 3rem;
-    height: 3rem;
+    width: 3em;
+    height: 3em;
     transition: var(--transition);
     cursor: pointer;
 }

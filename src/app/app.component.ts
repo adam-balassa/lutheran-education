@@ -1,5 +1,5 @@
 import { animate, style, transition, trigger } from '@angular/animations';
-import { Component, OnInit } from '@angular/core';
+import { AfterContentInit, AfterViewInit, ChangeDetectorRef, Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
 
 interface Bubble {
   text: string;
@@ -28,9 +28,19 @@ interface Bubble {
     ])
   ]
 })
-export class AppComponent implements OnInit {
-  constructor() {
+export class AppComponent implements OnInit, AfterViewInit {
+  @ViewChild('image') image: ElementRef<HTMLImageElement>;
 
+  constructor(private cdr: ChangeDetectorRef) {
+
+  }
+  ngAfterViewInit(): void {
+    this.image.nativeElement.onload = () => {
+      this.imageWidth = this.image.nativeElement.offsetWidth;
+      this.imageHeight = this.image.nativeElement.offsetHeight;
+      
+      this.cdr.detectChanges();
+    };
   }
 
   ngOnInit(): void {
@@ -38,8 +48,11 @@ export class AppComponent implements OnInit {
       this.firstOpen = false;
     else 
       this.firstOpen = true;
+
   }
 
+  imageHeight: number;
+  imageWidth: number;
   selectedBubble: number | null = null;
   firstOpen: boolean;
 
@@ -74,5 +87,11 @@ export class AppComponent implements OnInit {
     this.firstOpen = false;
     localStorage.setItem("firstOpen", 'false');
     event.stopPropagation();
+  }
+
+  @HostListener('window:resize')
+  onResize() {
+    this.imageHeight = this.image.nativeElement.offsetHeight;
+    this.imageWidth = this.image.nativeElement.offsetWidth;
   }
 }

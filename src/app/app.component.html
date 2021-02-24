@@ -3,15 +3,16 @@
         <span>Kattintson egy szövegbuborékra</span>
     </div>
     <div class="image-wrapper" (click)="onBackgroundClick()">
-        <img src="/assets/background.jpg" alt="">
+        <img src="/assets/background.jpg" alt="" #image>
         <div class="bubble-container" (click)="onBubbleClick(i, $event)" *ngFor="let bubble of bubbles; let i = index"
             [ngClass]="{
             left: bubble.left,
             down: bubble.down,
             highlight: i == 10 && firstOpen
         }" [ngStyle]="{
-            left: bubble.x + 'px',
-            top: bubble.y + 'px'
+            left: (bubble.x / 1236) * imageWidth + 'px',
+            top: bubble.y / 949 * imageHeight + 'px',
+            fontSize: 16 / 949 * imageHeight + 'px'
         }">
             <div class="image-container">
                 <img src="/assets/bubble.png" alt="">
