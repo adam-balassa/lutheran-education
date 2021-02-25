@@ -18,13 +18,16 @@
                 <img src="/assets/bubble.png" alt="">
             </div>
             <div class="big-bubble" @opacityAnimation *ngIf="selectedBubble == i" [ngStyle]="{
-                left: -80 - bubble.x / 5+'px'
+                left: (-100 - bubble.x / 4) / 949 * imageHeight+'px'
             }">
                 <span>{{bubble.text}}</span>
             </div>
         </div>
     </div>
     <div class="credits">
+        <span><a href="https://hitoktatas2.lutheran.hu/">Evangélikus hitoktatás</a></span>
+        <span><a href="https://pesthidegkut.egyhazkozseg.hu/">Pesthidegkúti Egyházközség</a></span>
+        <span><a href="https://www.facebook.com/Pesthidegk%C3%BAti-Evang%C3%A9likus-Egyh%C3%A1zk%C3%B6zs%C3%A9g-102399881408746">Facebook</a></span>
         <span>Grafika: <a href="http://bodikati.uw.hu/index.html">Bódi Kati</a></span>
     </div>
 </main>

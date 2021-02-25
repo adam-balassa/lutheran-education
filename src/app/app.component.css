@@ -58,14 +58,14 @@ main  {
 }
 
 .big-bubble {
-    width: 320px;
+    width: 17em;
     text-align: center;
     background-color: white;
     box-shadow: var(--shadow);
     border-radius: 50%;
     padding: 3.8em;
     position: absolute;
-    bottom: 2.2em;
+    bottom: 1.5em;
     left: 0;
     border: 1px black solid;
     font-size: 1.4em;
@@ -78,4 +78,6 @@ main  {
     bottom: 0;
     right: 0;
     font-size: 1.2rem;
+    display: flex;
+    flex-direction: column;
 }
